@@ -6,6 +6,12 @@
 
 FlowStore membantu calon pelanggan membandingkan layanan dan paket, menyelesaikan pembayaran, lalu mengakses layanan yang termasuk dalam membership melalui dashboard dan ekstensi browser FlowStore Bridge.
 
+## Tampilan beranda
+
+![Beranda publik FlowStore menampilkan pengantar katalog dan pilihan paket](images/homepage.webp)
+
+Cuplikan halaman publik tanpa login; tampilan produk dapat berubah.
+
 ## Gambaran produk
 
 - **Katalog layanan:** penelusuran berdasarkan kategori, pencarian, dan informasi paket minimum.
@@ -24,6 +30,6 @@ Lihat [flowstore.digital](https://flowstore.digital/) untuk katalog dan informas
 
 ## Tentang repositori ini
 
-Repositori ini hanya berisi dokumentasi portofolio. Source code aplikasi dan ekstensi, mekanisme akses, credential, sesi, konfigurasi deployment, data pelanggan, dan riwayat pengembangan internal tidak dipublikasikan. Tidak ada instruksi menjalankan aplikasi dari repositori ini.
+Repositori ini hanya berisi dokumentasi portofolio dan screenshot halaman publik. Source code aplikasi dan ekstensi, mekanisme akses, credential, sesi, konfigurasi deployment, data pelanggan, dan riwayat pengembangan internal tidak dipublikasikan. Tidak ada instruksi menjalankan aplikasi dari repositori ini.
 
 © 2026 FlowStore. All rights reserved.
