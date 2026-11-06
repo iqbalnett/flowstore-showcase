@@ -4,11 +4,49 @@
 
 [Website FlowStore](https://flowstore.digital/) · [Katalog layanan](https://flowstore.digital/#layanan) · [Pilihan membership](https://flowstore.digital/#harga)
 
+**Founder, Owner & Solo Developer.** Saya mendirikan, memiliki, dan mengembangkan FlowStore sendiri, dari etalase publik sampai pengalaman akun dan dashboard. Showcase ini menampilkan hasil antarmuka dan keputusan engineering, tanpa membuka source code atau data pelanggan.
+
+## Bukti visual produk
+
+Tiga screenshot asli dari [website publik FlowStore](https://flowstore.digital/), diambil pada **7 November 2026** melalui browser terisolasi tanpa login atau pembelian. Isi tampilan tidak diubah; gambar membership dipotong ke bagian atas. Tidak ada mockup dashboard atau data pelanggan buatan.
+
+### Katalog desktop: kategori, pencarian, dan paket minimum
+
+![Katalog publik FlowStore pada desktop dengan kategori, kolom pencarian, dan label paket minimum](images/catalog-desktop.webp)
+
+**Kontribusi saya:** menyusun katalog agar pengunjung dapat menelusuri kategori, mencari layanan, dan membaca paket minimum dalam satu tampilan. Cuplikan viewport **1440 × 1000 CSS px**, pada bagian `#layanan`; bukan daftar lengkap atau jaminan ketersediaan layanan.
+
+### Perbandingan membership: cakupan terpisah dari durasi
+
+![Perbandingan Silver, Gold, dan Platinum dengan pilihan durasi di atasnya](images/membership-desktop.webp)
+
+**Kontribusi saya:** menata perbandingan Silver, Gold, dan Platinum serta pilihan durasi sebelum pengguna melanjutkan pendaftaran. Cuplikan bagian `#harga` pada lebar **1440 CSS px**, dengan durasi awal satu bulan: **potongan bagian atas; rincian manfaat tidak ditampilkan**. Harga dan teks penawaran di gambar adalah isi halaman saat pengambilan, bukan metrik hasil kerja atau verifikasi pemenuhan paket.
+
+### Katalog mobile: prioritas informasi yang sama
+
+<img src="images/catalog-mobile.webp" alt="Katalog FlowStore pada layar ponsel: kategori membungkus ke beberapa baris, pencarian, dan daftar layanan satu kolom" width="340">
+
+**Kontribusi saya:** menyesuaikan kategori, pencarian, dan daftar ke layar sempit tanpa menghilangkan label paket. Cuplikan viewport **390 × 844 CSS px**, pada bagian `#layanan`. Ini bukti tampilan etalase mobile, bukan bukti Bridge berjalan di ponsel atau audit seluruh perangkat.
+
+Ketiga gambar diperiksa secara visual sebelum dimasukkan: hanya konten publik, tanpa identitas akun, credential, data pesanan, atau dashboard privat. Screenshot tidak membuktikan transaksi, akses layanan pihak ketiga, maupun hasil bisnis.
+
 ## Kontribusi pengembangan saya
 
 **Saya mengembangkan pengalaman web FlowStore dari penelusuran katalog dan pemilihan membership sampai penggunaan dashboard.** Fokus pekerjaan saya bukan hanya menampilkan paket, tetapi menjaga kelanjutan pilihan pengguna, menjelaskan keadaan aplikasi, dan membuat antarmuka tetap dapat digunakan saat data belum siap atau pembaruan gagal.
 
-Bagian ini merangkum pekerjaan pada project milik saya; bukan klaim bahwa seluruh kode ditulis seorang diri. Detail implementasi dan mekanisme akses tetap privat. Hasil yang dijelaskan adalah keluaran pekerjaan, bukan klaim kenaikan penjualan atau jumlah pelanggan.
+Sebagai founder dan pemilik produk, saya juga menjadi pengembang tunggal FlowStore. Detail implementasi dan mekanisme akses tetap privat. Hasil yang dijelaskan adalah keluaran pekerjaan, bukan klaim kenaikan penjualan atau jumlah pelanggan.
+
+### Ruang lingkup saya sebagai founder
+
+```mermaid
+flowchart LR
+    F["Founder, Owner & Solo Developer"] --> P["Produk: katalog dan struktur membership"]
+    F --> U["Antarmuka: desktop, mobile, dan konsistensi tema"]
+    F --> E["Engineering: konteks pilihan dan state asinkron"]
+    F --> D["Dashboard: pencarian, filter, dan pembaruan"]
+```
+
+Peta ini merangkum tanggung jawab saya, bukan arsitektur backend atau perjalanan pembelian. Bukti visual di atas menunjukkan sisi publik; uraian dashboard tetap bersumber dari catatan pengembangan.
 
 ### Apa yang saya bangun dan kerjakan
 
@@ -67,6 +105,8 @@ Studi kasus ini membahas keputusan pengguna sebelum membeli, perbedaan status se
 
 ## Daftar isi
 
+- [Bukti visual produk](#bukti-visual-produk)
+- [Ruang lingkup founder](#ruang-lingkup-saya-sebagai-founder)
 - [Kontribusi pengembangan saya](#kontribusi-pengembangan-saya)
 - [Kasus engineering](#kasus-engineering-yang-bisa-saya-jelaskan-saat-wawancara)
 - [Kualitas dan batas bukti](#kualitas-dan-batas-bukti)
@@ -151,7 +191,7 @@ Pilihan durasi ditampilkan terpisah dari tingkat membership. Untuk membaca penaw
 
 Label paket minimum tidak cukup untuk memastikan kecocokan seluruh kebutuhan. Periksa layanan yang dimaksud, persyaratan perangkat, dan aturan pemakaian sebelum menjadikan harga sebagai satu-satunya pertimbangan. [3][4]
 
-Harga, jumlah layanan, stok, serta klaim jaminan tidak disalin ke README ini. Acuan pembelian tetap halaman resmi yang berlaku ketika pengguna membuat keputusan.
+Harga, jumlah layanan, stok, serta klaim jaminan tidak dijadikan acuan tetap dalam uraian README. Angka yang terlihat pada screenshot merekam penawaran saat pengambilan; acuan pembelian tetap halaman resmi yang berlaku ketika pengguna membuat keputusan.
 
 ## Contoh keputusan yang bersifat ilustratif
 
@@ -343,6 +383,8 @@ Untuk mengevaluasi penawaran saat ini, buka [website resmi](https://flowstore.di
 ## Referensi publik
 
 Sumber berikut dibaca pada 6 November 2026. Isi website dapat berubah; tanggal ini menandai pembacaan, bukan tanggal pengujian produk.
+
+Screenshot pada bagian [Bukti visual produk](#bukti-visual-produk) direkam terpisah pada 7 November 2026 melalui browser yang menjalankan JavaScript. Katalog berhasil tampil pada pengambilan tersebut; keterbatasan pembacaan statis yang dicatat di bawah tetap merujuk penelitian sebelumnya.
 
 - **[1] [Beranda dan katalog FlowStore](https://flowstore.digital/):** posisi produk, kategori, pilihan tingkat dan durasi, navigasi, pesan katalog, serta pernyataan afiliasi pada footer.
 - **[2] [Dari Akun ke Layanan](https://flowstore.digital/#cara-kerja):** urutan pendaftaran, pembayaran QRIS, pembaruan status setelah konfirmasi, dan penggunaan Bridge.
