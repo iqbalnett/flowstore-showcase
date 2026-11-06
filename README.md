@@ -4,12 +4,73 @@
 
 [Website FlowStore](https://flowstore.digital/) · [Katalog layanan](https://flowstore.digital/#layanan) · [Pilihan membership](https://flowstore.digital/#harga)
 
+## Kontribusi pengembangan saya
+
+**Saya mengembangkan pengalaman web FlowStore dari penelusuran katalog dan pemilihan membership sampai penggunaan dashboard.** Fokus pekerjaan saya bukan hanya menampilkan paket, tetapi menjaga kelanjutan pilihan pengguna, menjelaskan keadaan aplikasi, dan membuat antarmuka tetap dapat digunakan saat data belum siap atau pembaruan gagal.
+
+Bagian ini merangkum pekerjaan pada project milik saya; bukan klaim bahwa seluruh kode ditulis seorang diri. Detail implementasi dan mekanisme akses tetap privat. Hasil yang dijelaskan adalah keluaran pekerjaan, bukan klaim kenaikan penjualan atau jumlah pelanggan.
+
+### Apa yang saya bangun dan kerjakan
+
+| Area pekerjaan | Kontribusi konkret | Hasil yang dapat dijelaskan |
+| --- | --- | --- |
+| Etalase membership | Menata katalog, pencarian, kategori, perbandingan tingkat paket, durasi, dan FAQ dalam satu perjalanan | Pengunjung dapat memeriksa kebutuhan sebelum memulai pendaftaran |
+| Kelanjutan pembelian | Menjaga pilihan tingkat paket dan durasi saat berpindah ke pendaftaran, serta tujuan pembelian ketika perlu masuk | Perpindahan halaman tidak memutus konteks pilihan yang sudah dibuat |
+| Keadaan katalog | Membedakan pemuatan, kegagalan dengan percobaan ulang, dan hasil kosong | Gangguan pengambilan data tidak ditampilkan seolah-olah tidak ada layanan |
+| Dashboard | Mengembangkan pencarian dan filter serta pengalaman pembaruan tanpa mengosongkan tampilan yang sudah tersedia | Pengguna tetap mempunyai konteks ketika pembaruan latar belakang gagal, disertai peringatan |
+| Konsistensi antarmuka pelanggan | Menyatukan tema dan pola tampilan pada halaman pelanggan | Pengalaman beranda, akun, dan pembelian tidak terasa sebagai halaman yang berdiri sendiri |
+| Interaksi responsif | Menangani menu mobile, penutupan dengan Escape, pengembalian fokus, FAQ, dan preferensi pengurangan gerakan | Interaksi tidak hanya dirancang untuk klik mouse di desktop |
+
+### Kasus engineering yang bisa saya jelaskan saat wawancara
+
+**1. Menjaga konteks dari pemilihan paket sampai pendaftaran.**
+
+- **Masalah:** pengguna sudah menentukan paket dan durasi; perpindahan ke pendaftaran atau masuk berpotensi membuat pilihan itu terasa hilang.
+- **Keputusan saya:** mempertahankan konteks pilihan sepanjang perpindahan halaman yang terkait, sambil tetap membedakan proses membuat akun dari konfirmasi pembelian.
+- **Hasil pekerjaan:** pilihan di etalase tetap relevan pada langkah berikutnya. Membuat akun tidak ditampilkan sebagai bukti bahwa membership sudah aktif.
+- **Trade-off:** alur perlu menangani pengguna baru dan pengguna yang kembali tanpa menganggap keduanya mulai dari halaman yang sama.
+
+**2. Menangani katalog dan dashboard saat pembaruan tidak berhasil.**
+
+- **Masalah:** mengosongkan seluruh tampilan saat setiap pembaruan membuat pengguna kehilangan konteks dan dapat menyangka layanan sudah tidak tersedia.
+- **Keputusan saya:** membedakan pemuatan pertama dari pembaruan berikutnya; mempertahankan daftar terakhir saat pembaruan gagal dan memperlihatkan peringatan.
+- **Hasil pekerjaan:** pencarian dan filter tetap mempunyai konteks selama gangguan pembaruan. Respons kosong yang berhasil tetap dibedakan dari kegagalan memperoleh data.
+- **Trade-off:** data terakhir belum tentu kondisi terbaru. Peringatan tetap diperlukan; mempertahankan tampilan bukan alasan menyembunyikan kegagalan.
+
+**3. Membuat konsistensi visual tanpa mengabaikan interaksi.**
+
+- **Masalah:** tema yang sama tidak cukup jika menu mobile, fokus keyboard, atau gerakan masih menghambat penggunaan.
+- **Keputusan saya:** menyatukan pola visual pelanggan sekaligus menangani Escape, pengembalian fokus menu, disclosure FAQ, dan preferensi reduced motion.
+- **Hasil pekerjaan:** desain mencakup perilaku kontrol, bukan hanya warna dan screenshot halaman utama.
+- **Trade-off:** animasi digunakan sebagai umpan balik terbatas; interaksi utama tidak bergantung pada animasi terus-menerus. Ini bukan klaim sertifikasi aksesibilitas menyeluruh.
+
+### Kualitas dan batas bukti
+
+Dokumentasi pengembangan mencatat pemeriksaan build, tipe, regresi alur akun dan pembelian, serta pengamatan browser pada tampilan mobile dan desktop. Area yang perlu dijaga meliputi kelanjutan pilihan paket, fokus keyboard, overflow horizontal, dan pemisahan keadaan pemuatan/kegagalan. **Pemeriksaan pengembangan tersebut tidak diklaim dijalankan ulang saat pembaruan README ini.**
+
+Perilaku dashboard di atas bersumber dari catatan pengembangan; tidak dipresentasikan sebagai hasil pengujian akun pelanggan dalam showcase. Tidak ada transaksi nyata, data pelanggan, atau mekanisme akses yang dipublikasikan. Keberadaan penanganan suatu kasus juga bukan jaminan bahwa produk tidak memiliki bug.
+
+### Panduan peninjauan untuk recruiter
+
+1. Buka [beranda](https://flowstore.digital/) dan telusuri hubungan antara katalog, pilihan paket, durasi, dan FAQ.
+2. Gunakan pencarian atau kategori untuk menilai bagaimana pengunjung mempersempit kebutuhan. Jangan menyamakan label paket dengan jaminan ketersediaan layanan.
+3. Bandingkan tampilan desktop dan ponsel, lalu coba navigasi keyboard pada kontrol publik. Ini merupakan panduan peninjauan, bukan klaim seluruh kombinasi perangkat sudah diuji.
+4. Diskusikan kasus engineering di atas: apa yang perlu dipertahankan saat pengguna berpindah halaman, bagaimana membedakan data kosong dan kegagalan, serta kapan data terakhir masih layak ditampilkan. Tidak perlu membuat pesanan untuk meninjau etalase.
+
+**Kompetensi yang ditunjukkan melalui pekerjaan:** pengembangan antarmuka produk komersial, penanganan state asinkron, kelanjutan alur pengguna, desain responsif, interaksi keyboard, konsistensi komponen, dan pemeriksaan regresi. Penilaian tidak didasarkan pada angka omzet atau performa yang tidak dibuktikan.
+
+## Gambaran produk
+
 FlowStore adalah storefront membership digital dengan dashboard untuk membuka layanan yang termasuk dalam paket pelanggan. Pengunjung dapat menelusuri kategori, membandingkan paket dan durasi, kemudian melanjutkan ke pendaftaran serta pembayaran. Halaman publik menjelaskan bahwa status langganan diperbarui setelah pembayaran terkonfirmasi; penggunaan layanan membership berlanjut melalui dashboard dan ekstensi FlowStore Bridge. [1][2]
 
 Studi kasus ini membahas keputusan pengguna sebelum membeli, perbedaan status selama pembelian, dan kebutuhan saat kembali menggunakan layanan. Pembahasannya terbatas pada pengalaman produk, bukan implementasi aplikasi atau mekanisme akses.
 
 ## Daftar isi
 
+- [Kontribusi pengembangan saya](#kontribusi-pengembangan-saya)
+- [Kasus engineering](#kasus-engineering-yang-bisa-saya-jelaskan-saat-wawancara)
+- [Kualitas dan batas bukti](#kualitas-dan-batas-bukti)
+- [Panduan peninjauan untuk recruiter](#panduan-peninjauan-untuk-recruiter)
 - [Tampilan beranda](#tampilan-beranda)
 - [Posisi produk dan masalah pengguna](#posisi-produk-dan-masalah-pengguna)
 - [Membaca kategori dari kebutuhan](#membaca-kategori-dari-kebutuhan)
