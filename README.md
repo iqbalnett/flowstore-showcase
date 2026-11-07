@@ -42,6 +42,52 @@ Silver, Gold, dan Platinum dibandingkan berdampingan, dengan pilihan 30, 90, dan
 
 Pada viewport **390 × 844 CSS px**, kategori membungkus ke beberapa baris dan daftar berubah menjadi satu kolom. Pencarian serta label paket tetap hadir. Ini adalah tampilan etalase mobile, bukan penggunaan Bridge di ponsel.
 
+## Di balik FlowStore: rancangan produk dan sistem
+
+Sebagai **Founder & Solo Developer**, saya mengerjakan etalase, akun pelanggan, pembelian, dashboard, dan alat operasional. Peta ini menjelaskan pembagian tanggung jawab pada tingkat produk, bukan cara mengakses layanan atau konfigurasi internalnya. Repositori showcase tetap hanya berisi dokumentasi dan gambar publik.
+
+### Fitur dan tanggung jawabnya
+
+| Area | Yang saya bangun | Alur pengguna dan sistem |
+| --- | --- | --- |
+| **Etalase** | Beranda, katalog berkategori dengan pencarian, perbandingan Silver/Gold/Platinum, pilihan durasi, dan FAQ. | Pengunjung menilai cakupan dan prasyarat perangkat sebelum memilih paket. |
+| **Akun** | Pendaftaran, masuk dengan email atau Discord, dan halaman akun. | Identitas pelanggan dan status membership dipisahkan; membuat akun saja tidak membuka paket berbayar. |
+| **Pembelian** | Checkout QRIS, halaman status pesanan, dan jalur pembaruan layanan tertentu. | Pilihan paket dibawa ke pembelian; konfirmasi pembayaran diproses di server sebelum status pesanan dan akses diperbarui. |
+| **Dashboard** | Ringkasan akun, katalog layanan sesuai tingkat akses, pencarian, dan peluncuran melalui FlowStore Bridge di browser desktop. | Pelanggan masuk untuk melihat layanan yang tersedia bagi akunnya; Bridge membantu membuka layanan dari browser yang didukung. |
+| **Operasional** | Panel untuk meninjau pesanan, pelanggan, lisensi, katalog, dan antrean pengiriman. | Pengelolaan layanan dan pemeriksaan pesanan berada di area operasional, terpisah dari etalase pelanggan. |
+
+### Peta sistem
+
+```mermaid
+flowchart TB
+    VIS[Pengunjung] --> UI[Website: Next.js App Router dan React]
+    UI --> CATALOG[Katalog publik dan pilihan membership]
+    CATALOG --> ACCOUNT[Pendaftaran atau masuk]
+    ACCOUNT --> CHECKOUT[Checkout dan status pesanan]
+    CHECKOUT --> SERVER[API dan logika produk di server]
+    SERVER --> PAYMENT[Penyedia pembayaran QRIS]
+    PAYMENT --> CONFIRM[Konfirmasi pembayaran di server]
+    CONFIRM --> DATA[(Data akun, pesanan, dan akses)]
+    ACCOUNT --> DASH[Dashboard pelanggan]
+    DATA --> DASH
+    DASH --> SERVICES[Layanan sesuai akses]
+    SERVICES --> BRIDGE[FlowStore Bridge di browser desktop]
+    ADMIN[Panel operasional] --> SERVER
+    SERVER --> DATA
+```
+
+**Stack:** Next.js 14, React 18, TypeScript, Tailwind CSS, Supabase untuk data PostgreSQL, dan integrasi pembayaran QRIS. FlowStore Bridge adalah ekstensi browser untuk pengalaman membuka layanan dari dashboard; Discord juga tersedia sebagai pilihan masuk. Daftar ini menggambarkan komponen produk yang terlihat dari implementasi, bukan inventaris konfigurasi deployment.
+
+### Bagaimana alur utamanya bekerja
+
+**Dari katalog ke akun.** Katalog publik menampilkan layanan dan tingkat paket minimum. Pengunjung memilih tingkat membership serta durasi, lalu melanjutkan ke pendaftaran atau masuk tanpa kehilangan pilihan. Identitas akun dibuat terpisah dari hak membership; pemilik akun baru belum otomatis menjadi pelanggan paket berbayar.
+
+**Dari pesanan ke akses.** Checkout menyiapkan pesanan dan pembayaran QRIS. Halaman status membantu pembeli mengikuti prosesnya; pembaruan akses bergantung pada pembayaran yang dikonfirmasi di server, bukan sekadar layar checkout yang terbuka. Produk atau layanan dengan alur pembaruan tersendiri tidak disamakan dengan pembelian membership baru. Ketersediaan, harga, serta ketentuan mengikuti website saat transaksi.
+
+**Dari dashboard ke layanan.** Setelah masuk, pelanggan melihat status akun dan layanan berdasarkan aksesnya. Pada browser desktop yang didukung, FlowStore Bridge menghubungkan tindakan membuka layanan dari dashboard dengan pengalaman browser. Dashboard dan panel operasional mempunyai tujuan berbeda: yang pertama untuk pelanggan, yang kedua untuk pengelolaan katalog, pesanan, dan layanan.
+
+Uraian arsitektur ini berasal dari peninjauan implementasi privat; tidak ada pengujian transaksi, akun pelanggan, atau sistem pembayaran produksi untuk studi kasus ini. Mekanisme akses, detail integrasi, data pelanggan, dan kredensial tidak dipublikasikan.
+
 ## Keputusan pengembangan
 
 ### Pilihan pengguna tidak berhenti di halaman harga
